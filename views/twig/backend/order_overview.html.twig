@@ -1,0 +1,20 @@
+{% extends "order_overview.html.twig" %}
+
+{% block admin_order_overview_checkout %}
+	{% if paymentType.oxpayments__oxdesc.value == 'Novalnet' %}
+	<tr>
+		<td class="edittext">{{ translate({ ident: "ORDER_OVERVIEW_PAYMENTTYPE" }) }}: </td>
+		{% if aNovalnetPayment is not null %}
+		<td class="edittext"><b>{{ aNovalnetPayment }}</b></td>
+		{% else %}
+		<td class="edittext"><b>{{ paymentType.oxpayments__oxdesc.value }}</b></td>		
+		{% endif %}
+	</tr>
+	<tr>
+		<td class="edittext">{{ translate({ ident: "ORDER_OVERVIEW_DELTYPE" }) }}: </td>
+		<td class="edittext"><b>{{ deliveryType.oxdeliveryset__oxtitle.value }}</b><br></td>
+	</tr>
+	{% else %}
+		{{ parent() }}
+	{% endif %}
+{% endblock %}
