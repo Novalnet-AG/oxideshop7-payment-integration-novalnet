@@ -1,5 +1,5 @@
 {
-    "name":        "novalnetv13/oxid7-payment-module",
+    "name":        "novalnet/oxid7-payment-module",
     "description": "Seamless integration with 150+ payment methods worldwide from Novalnet",
     "type":        "oxideshop-module",
     "keywords":    [
@@ -21,7 +21,7 @@
     ],
     "extra":       {
         "oxideshop": {
-            "target-directory": "novalnetv13/novalnetpayment"
+            "target-directory": "novalnet/novalnetpayment"
         }
     },
     "autoload":    {
