@@ -1,10 +1,9 @@
-# oxide7Shop-payment-integration-novalnet
 # NOVALNET PAYMENT MODULE FOR OXID ESHOP
-Novalnet payment module for <a href="https://www.novalnet.com/modul/oxid-eshop-payment-module">OXID eShop</a> simplifies your daily work by automating the entire payment process, from checkout till collection. This module is designed to increase your sales by offering various payment methods on a one-page checkout. The module perfectly adjusted to the OXID eShop with a top-quality range of services of the payment provider.
+Novalnet payment module for <a href="https://www.novalnet.com/modul/oxid-eshop-payment-module">OXID eShop</a> simplifies your daily work by automating the entire payment process, from checkout to collection. This module is designed to increase sales by offering various payment methods on a one-page checkout. The module perfectly adjusted to the OXID eShop with a top-quality range of services of the payment provider.
 
-Novalnet payment module is available for the Oxid eshop versions 7 in the following languages in <b>EN, DE</b>
+Novalnet payment module is available for the Oxid eShop version 7.0 in the following languages in <b>EN, DE</b>
 
-Through individuality and flexibility, you can choose which payment methods and services you need. Get seamless integration with the various types of payments and payment-related services integrated with a unique platform.
+You can choose which payment methods and services you need through individuality and flexibility. Get seamless integration with the various types of payments and payment-related services integrated with a unique platform.
 
 ## Important functions for OXID eShop
 * Seamless and fast integration of the payment module
@@ -16,15 +15,13 @@ Through individuality and flexibility, you can choose which payment methods and 
 * Automated e-mail notification function concerning payment status reports
 * Automated bookkeeping report in XML, SOAP, CSV, MT940
 * All SUPEE secure patches are supported
-* PCI compliant hosted page 
-* Secure SSL- encoded gateways
-* Simple seamless integration of the payment module
+* Simple, seamless integration of the payment module
 * Secure SSL-encoded gateways
 * Seamless checkout Iframe integration
 * One-click shopping enabled for commonly used payment types
 * Easy confirmation/cancellation of on-hold transactions for selected payment types
 * Refund option for various payment types
-* Responsive templates	
+* Responsive templates
 
 ## Supported Payment Methods
 - Direct Debit SEPA
