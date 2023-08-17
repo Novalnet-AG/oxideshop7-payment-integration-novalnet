@@ -58,7 +58,6 @@ You can choose which payment methods and services you need through individuality
  composer require novalnet/oxid7-payment-module
  ```
  ##### 2. Provide write access to /var/ directory during execution
- ```
 
 ## Installation via OXID eXchange
 You can also download Oxid Payment Module for free from <a href="https://solutionhub.oxid-esales.com/novalnet-worldwide-payment-solutions/"> Oxid eXchange</a>. 
