@@ -50,6 +50,18 @@ You can choose which payment methods and services you need through individuality
 - WeChat Pay
 - Trustly
 
+## Installation via Composer
+
+#### Follow the below steps and run the command from the shop root directory.
+ ##### 1. Run the below command to install the payment module
+ ```
+ composer require novalnet/oxid7-payment-module
+ ```
+ ##### 2. Provide write access to /var/ directory during execution
+ ```
+## Installation via OXID eXchange
+You can also download Oxid Payment Module for free from <a href="https://solutionhub.oxid-esales.com/novalnet-worldwide-payment-solutions/"> Oxid eXchange</a>. 
+
 ## Contact
 Novalnet AG<br>
 Zahlungsinstitut (ZAG)<br>
