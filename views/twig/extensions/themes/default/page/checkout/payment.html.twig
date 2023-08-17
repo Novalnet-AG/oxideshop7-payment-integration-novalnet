@@ -1,0 +1,17 @@
+{% extends "page/checkout/payment.html.twig" %}
+
+{% block select_payment %}
+    {% if sPaymentID == 'novalnetpayments' %}
+        {% include "@novalnet/frontend/novalnet_payment_custom.html.twig" %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block checkout_payment_errors %}
+    {{ parent() }}
+
+    {% if oView.getPaymentError() == -50 %}
+        <div class="alert alert-danger">{{ oView.getPaymentErrorText() }}</div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "email/plain/order_cust.html.twig" %}
+
+{% block email_plain_order_cust_username %}
+    {% if payment.oxuserpayments__oxpaymentsid.value == 'novalnetpayments' %}
+        {% set sNovalnetComments = oViewConf.getNovalnetOrderComments(order.oxorder__oxordernr.value) %}
+    {% if sNovalnetComments is not null %}
+    <b>{{ translate({ ident: "NOVALNET_TRANSACTION_DETAILS" }) }}</b>
+        {% set sComments =  sNovalnetComments | replace({"<br>":"\n" }) %}
+        {{ sComments | nl2br }}
+    {% endif %}
+    <br><br>
+    {% endif %}
+{% endblock %}
