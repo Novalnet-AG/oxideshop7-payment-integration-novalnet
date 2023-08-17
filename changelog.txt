@@ -1,0 +1,6 @@
+*** Changelog ***
+
+= 13.2.0 - 2023.08.17
+* Major version release: Payment module is optimized to support for Oxideshop 7 with seamless customer experience
+
+
