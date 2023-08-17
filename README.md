@@ -19,6 +19,7 @@ You can choose which payment methods and services you need through individuality
 * Secure SSL-encoded gateways
 * Seamless checkout Iframe integration
 * One-click shopping enabled for commonly used payment types
+* Zero amount authorization supported for Credit/Debit Cards, Direct Debit SEPA, Apple Pay & Google Pay
 * Easy confirmation/cancellation of on-hold transactions for selected payment types
 * Refund option for various payment types
 * Responsive templates
