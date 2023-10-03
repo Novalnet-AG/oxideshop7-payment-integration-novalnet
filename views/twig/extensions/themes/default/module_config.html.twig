@@ -1,0 +1,54 @@
+
+{% extends "module_config.html.twig" %}
+
+{% block admin_module_config_var %}
+
+{% if module_var == 'sTariffId'  %}
+{{ script({ include: "js/libs/jquery.min.js", dynamic: __oxid_include_dynamic }) }}
+{{ script({ include: "js/libs/jquery-ui.min.js", dynamic: __oxid_include_dynamic }) }}
+        {{ script({ include: oViewConf.getModuleUrl('novalnet', 'js/novalnet_config.js'), dynamic: __oxid_include_dynamic }) }}
+        {% set oConfig = oViewConf.getConfig() %}
+        {% set oSession = oViewConf.getSession() %}
+        <input type="hidden" id="sToken" name="sToken" value="{{ oSession.getSessionChallengeToken() }}">
+        <input type="hidden" id="sGetUrl" name="sGetUrl" value="{{ oViewConf.getNovalnetShopUrl() }}">
+        <input type="hidden" id="sMandatoryError" value="{{ translate({ ident: "NOVALNET_MANDATORY_ERROR" }) }}">
+        <input type="hidden" id="sWebhookSuccess" value="{{ translate({ ident: "NOVALNET_WEBHOOK_SUCCESS_TEXT" }) }}">
+        <dl>
+            <dt>
+                <select class="select" name="confselects[{{module_var}}]" id="dNovalnetTariffId" {{readonly}}>
+                    <option value="" {% if confselects[module_var] == '' %}selected{% endif %}>{{ translate({ ident: "NOVALNET_PLEASE_SELECT" }) }}</option>
+                </select>
+                <input type="hidden" id="novalnetSavedTariff" value="{{ confselects[module_var] }}" />
+
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_MODULE_" ~ module_var), 'sHelpText': help_text("HELP_SHOP_MODULE_" ~ module_var)} %}
+            </dt>
+            <dd>
+                {{ translate({ ident: "SHOP_MODULE_" ~ module_var }) }}
+            </dd>
+            <div class="spacer"></div>
+         </dl>
+    {% elseif module_var == 'sProductActivationKey' or  module_var == 'sPaymentAccessKey' or module_var == 'sWebhooksUrl' %}
+    <dl>
+        <dt>
+            <input type=text class="txt" style="width: 250px;" id="{{ module_var }}" name="confstrs[{{ module_var }}]" value="{{ confstrs[module_var] }}" {{ readonly }}>
+            {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_MODULE_" ~ module_var), 'sHelpText': help_text("HELP_SHOP_MODULE_" ~ module_var)} %}
+        </dt>
+        <dd>
+            {{ translate({ ident: "SHOP_MODULE_" ~ module_var }) }}
+        </dd>
+        <div class="spacer"></div>
+    </dl>
+    {% elseif module_var == 'blWebhookSendMail' %}
+    <dl>
+        <dt>
+            <input type=text class="txt" style="width: 250px;" id="{{ module_var }}" name="confstrs[{{ module_var }}]" value="{{ confstrs[module_var] }}" {{ readonly }}>
+        </dt>
+        <dd>
+            {{ translate({ ident: "SHOP_MODULE_" ~ module_var }) }}
+        </dd>
+        <div class="spacer"></div>
+    </dl>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

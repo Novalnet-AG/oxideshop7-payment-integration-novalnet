@@ -1,0 +1,11 @@
+*** Changelog ***
+
+= 13.3.0 - 2023.10.03
+* New      - Implemented Direct Debit ACH, MB Way, Blik and Payconiq payments
+* Enhanced - Added "fax" parameter in the payment request
+
+
+= 13.2.0 - 2023.08.17
+* Major version release: Payment module is optimized to support for Oxideshop 7 with seamless customer experience
+
+
