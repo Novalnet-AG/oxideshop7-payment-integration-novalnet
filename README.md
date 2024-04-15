@@ -67,7 +67,7 @@ You can choose which payment methods and services you need through individuality
 You can also download Oxid Payment Module for free from <a href="https://solutionhub.oxid-esales.com/novalnet-worldwide-payment-solutions/"> Oxid eXchange</a>. 
 
 ## Documentation & Support
-For more information about the Oxidesshop 7 Payment Integration by Novalnet, please get in touch with us: <a href="mailto:sales@novalnet.de"> sales@novalnet.de </a> or +49 89 9230683-20<br>
+For more information about the Oxid eShop 7 Payment Integration by Novalnet, please get in touch with us: <a href="mailto:sales@novalnet.de"> sales@novalnet.de </a> or +49 89 9230683-20<br>
 
 Novalnet AG<br>
 Zahlungsinstitut (ZAG)<br>
