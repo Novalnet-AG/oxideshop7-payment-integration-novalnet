@@ -508,15 +508,16 @@ class WebhookController extends FrontendController
                         $aInstalmentDetails['instalment' . $dcycle]['status'] = 'NOVALNET_INSTALMENT_STATUS_CANCELLED';
                     } else {
                         $aInstalmentDetails['instalment' . $dcycle]['status'] = 'NOVALNET_INSTALMENT_STATUS_REFUNDED';
-                        $currency = !empty($this->eventData['transaction']['refund']['currency']) ? $this->eventData['transaction']['refund']['currency'] : $this->eventData['transaction']['currency'];
-                        if (isset($this->eventData['transaction']['refund']['tid']) && !empty($this->eventData['transaction']['refund']['tid'])) {
-                            $this->aNovalnetComments[] = ['NOVALNET_CALLBACK_REFUND_TID_TEXT' => [$aInstalmentDetails['instalment' . $dcycle]['tid'], NovalnetUtil::formatCurrency($aInstalmentDetails['instalment' . $dcycle]['paid_amount'], $currency) .' '. $currency, $this->eventData['transaction']['refund']['tid']]];
-                        } else {
-                            $this->aNovalnetComments[] = ['NOVALNET_CALLBACK_REFUND_TEXT' => [$aInstalmentDetails['instalment' . $dcycle]['tid'], NovalnetUtil::formatCurrency($aInstalmentDetails['instalment' . $dcycle]['paid_amount'], $currency) .' '. $currency]];
-                        }
-                    }
                 }
+            }
+            if (!empty($this->eventData['transaction']['refund']['amount'])) {
+                $currency = !empty($this->eventData['transaction']['refund']['currency']) ? $this->eventData['transaction']['refund']['currency'] : $this->eventData['transaction']['currency'];
                 $this->aNovalnetComments[] = ['NOVALNET_CALLBACK_INSTALMENT_CANCEL_MESSAGE' => [$this->eventData['transaction']['tid'], NovalnetUtil::getFormatDate()]];
+                $this->aNovalnetComments[] = ['NOVALNET_CALLBACK_INSTALMENT_REFUND_TEXT' => [NovalnetUtil::formatCurrency($this->eventData['transaction']['refund']['amount'], $currency) .' '. $currency]];   
+             }
+             else {
+                $this->aNovalnetComments[] = PHP_EOL;
+            }
                 $this->aAdditionalData['novalnet_comments'][] = $this->aNovalnetComments;
                 $this->aAdditionalData['instalment_comments'] = $aInstalmentDetails;
                 NovalnetUtil::updateTableValues('oxorder', ['OXPAID' => $oxpaid], 'OXORDERNR', $this->orderID);
