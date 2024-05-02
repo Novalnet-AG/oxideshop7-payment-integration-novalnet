@@ -279,21 +279,24 @@ class OrderController extends AdminDetailsController
                                     $aInstalmentDetails['instalment' . $dCycle]['status'] = 'NOVALNET_INSTALMENT_STATUS_CANCELLED';
                                 } else {
                                     $aInstalmentDetails['instalment' . $dCycle]['status'] = 'NOVALNET_INSTALMENT_STATUS_REFUNDED';
+                                    } 
+                                } 
+                                if (!empty($aResponse['transaction']['refund']['amount'])) {
                                     $currency = !empty($aResponse['transaction']['refund']['currency']) ? $aResponse['transaction']['refund']['currency'] : $aResponse['transaction']['currency'];
-                                    if (isset($aResponse['transaction']['refund']['tid']) && !empty($aResponse['transaction']['refund']['tid'])) {
-                                        $aNovalnetComments[] = ['NOVALNET_CALLBACK_REFUND_TID_TEXT' => [$aInstalmentDetails['instalment' . $dCycle]['tid'], NovalnetUtil::formatCurrency($aInstalmentDetails['instalment' . $dCycle]['paid_amount'], $currency) .' '. $currency, $aResponse['transaction']['refund']['tid']]];
-                                    } else {
-                                        $aNovalnetComments[] = ['NOVALNET_CALLBACK_REFUND_TEXT' => [$aInstalmentDetails['instalment' . $dCycle]['tid'], NovalnetUtil::formatCurrency($aInstalmentDetails['instalment' . $dCycle]['paid_amount'], $currency) .' '. $currency]];
-                                    }
+                                    $aNovalnetComments[] = ['NOVALNET_CALLBACK_INSTALMENT_CANCEL_MESSAGE' => [$aResponse['transaction']['tid'], NovalnetUtil::getFormatDate()]];
+                                    $aNovalnetComments[] = ['NOVALNET_CALLBACK_INSTALMENT_REFUND_TEXT' => [NovalnetUtil::formatCurrency($aResponse['transaction']['refund']['amount'], $currency) .' '. $currency]];   
+                                 }
+                                 else {
+                                    $aNovalnetComments[] .= PHP_EOL;
                                 }
-                            }
+                                
                             $oxpaid = '0000-00-00 00:00:00';
-                            $aNovalnetComments[] = ['NOVALNET_CALLBACK_INSTALMENT_CANCEL_MESSAGE' => [$aResponse['transaction']['tid'], NovalnetUtil::getFormatDate()]];
                             NovalnetUtil::updateTableValues('oxorder', ['OXPAID' => $oxpaid], 'OXORDERNR', $aServerResponse['order_id']);
                             $aAdditionalData['instalment_comments'] = $aInstalmentDetails;
                             $aAdditionalData['novalnet_comments'][] = $aNovalnetComments;
                             NovalnetUtil::updateTableValues('novalnet_transaction_detail', ['ADDITIONAL_DATA' => json_encode($aAdditionalData),'GATEWAY_STATUS' => $aResponse['transaction']['status'], 'AMOUNT' => 0], 'ORDER_NO', $aServerResponse['order_id']);
-                        } else {
+                        } 
+                            else {
                             $aAdditionalData['cancel_remaining_cancel'] = true;
                             $aNovalnetComments[] = ['NOVALNET_INSTALMENT_REMAINING_CANCEL_MESSAGE' => [$aTransDetails['TID'], NovalnetUtil::getFormatDate()]];
                             for ($dCycle = 1; $dCycle <= $aInstalmentDetails['instalment_total_cycles']; $dCycle++) {
