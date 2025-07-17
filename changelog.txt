@@ -1,0 +1,20 @@
+*** Changelog ***
+
+= 13.4.0 - 2025.07.17
+* New - Implemented TWINT payment
+* Fix - Compatibility for Oxid 7.2.0
+* Fix - Amount mismatch handled for Paypal payment
+* Fix - Incomplete orders are now prevented when end users return to the checkout page after cancelling a payment
+* Fix - Shop’s internal status handling has been updated to match the Novalnet transaction status
+* Enhanced - Optimized the Callback/Webhook process for fetching Dynamic IP
+* Enhanced - API/Webhook Response is normalized in the payment module for Instalment Payments
+
+= 13.3.0 - 2023.10.03
+* New - Implemented Direct Debit ACH, MB Way, Blik and Payconiq payments
+* Enhanced - Added "fax" parameter in the payment request
+
+
+= 13.2.0 - 2023.08.17
+* Major version release: Payment module is optimized to support for Oxideshop 7 with seamless customer experience
+
+

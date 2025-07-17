@@ -1,0 +1,10 @@
+{% extends "page/checkout/thankyou.html.twig" %}
+
+{% block checkout_thankyou_proceed %}
+    {% if aNovalnetToken is defined %}
+        <script src="{{ aNovalnetBarzahlensUrl }}" class="bz-checkout" data-token="{{ aNovalnetToken }}"></script>
+        <button class="bz-checkout-btn">{{ translate({ ident: "NOVALNET_BARZAHLEN_BUTTON" }) }}</button>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
