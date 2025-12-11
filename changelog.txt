@@ -1,6 +1,6 @@
 *** Changelog ***
 
-= 13.5.0 - 2025.12.10
+= 13.5.0 - 2025.12.11
 * New - EPC/SPC QR code implemented for Prepayment, Invoice, Invoice with payment guarantee and Instalment by Invoice payments
 * Enhanced - Added a Configure button to seamlessly integrate Notification/WebhookURLs into the Novalnet Admin Portal
 * Removed - Sofort, giropay, and Barzahlen/viacash payment methods
